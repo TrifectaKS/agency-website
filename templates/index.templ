@@ -1,0 +1,31 @@
+// templates/index.templ
+package templates
+
+templ Index() {
+<html>
+
+<head>
+    <title>My Portfolio</title>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/static/styles.css" />
+    <!-- Tailwind via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Alpine JS via CDN -->
+    <script src="//unpkg.com/alpinejs" defer></script>
+    <!-- HTMX via CDN -->
+    <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+</head>
+
+<body class="min-h-screen flex flex-col bg-white text-black font-sans">
+    @Header()
+
+    <main class="flex-grow p-4">
+        <h2 class="text-2xl font-bold">Welcome to my portfolio</h2>
+        <p>This is the homepage.</p>
+    </main>
+
+    @Footer()
+</body>
+
+</html>
+}

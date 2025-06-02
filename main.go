@@ -1,7 +1,7 @@
 package main
 
 import (
-	"go-htmx-tw-templ-template/templates" // replace with your actual module name
+	"agency-website/templates"
 	"net/http"
 )
 
@@ -11,16 +11,18 @@ func main() {
 
 	// Route: full page
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		// For now, serve a plain HTML page or integrate templ as needed
-		http.ServeFile(w, r, "templates/index.html")
+		err := templates.Index().Render(r.Context(), w)
+		if err != nil {
+			http.Error(w, "Failed to render template", http.StatusInternalServerError)
+		}
 	})
 
 	// Route: HTMX partial using templ
 	http.HandleFunc("/hello", func(w http.ResponseWriter, r *http.Request) {
-		err := templates.Hello("hello world").Render(r.Context(), w)
+		/*err := templates.Hello("hello world").Render(r.Context(), w)
 		if err != nil {
 			http.Error(w, "Failed to render template", http.StatusInternalServerError)
-		}
+		}*/
 	})
 
 	http.ListenAndServe(":8080", nil)
