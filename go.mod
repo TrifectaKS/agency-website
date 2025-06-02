@@ -1,4 +1,4 @@
-module agency-website
+module template-module
 
 go 1.23.0
 

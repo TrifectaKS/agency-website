@@ -1,8 +1,8 @@
 package main
 
 import (
-	"agency-website/templates"
 	"net/http"
+	"template-module/templates"
 )
 
 func main() {
